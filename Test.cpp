@@ -66,9 +66,11 @@ TEST_CASE("* operator") {
 TEST_CASE("/ operator") {
     Fraction a(4, 6);
     Fraction b(2, 6);
+    Fraction c(3, 6);
     Fraction res1(2, 1);
     CHECK(((a / b == 2) && (a / b == res1))); //reduced form
-
+    CHECK((a / b != b / a));
+    CHECK((((a / b) / c) == (a / (b / c))));
 
 }
 
@@ -94,6 +96,8 @@ TEST_CASE("negative numbers") {
 TEST_CASE(">=,<=,==,!=") {
     Fraction a(1, 5);
     Fraction b(1, 5);
+    Fraction c(1, 333);
+    float f = static_cast<float>(1) / 3;
     float scalar = 0.2;
     float scalar2 = 0.3;
     CHECK((a >= scalar));
@@ -101,6 +105,8 @@ TEST_CASE(">=,<=,==,!=") {
     CHECK((a == scalar));
     CHECK((a == b));
     CHECK((a != scalar2));
+    CHECK((f == c));
+
 }
 
 TEST_CASE("input and output") {

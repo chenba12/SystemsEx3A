@@ -26,6 +26,18 @@ Fraction &Fraction::operator=(float scalar) {
     return *this;
 }
 
+Fraction &Fraction::operator=(Fraction &&other) noexcept {
+    return *this;
+}
+
+Fraction::Fraction(Fraction &&other) noexcept {
+    this->numerator = other.numerator;
+    this->denominator = other.denominator;
+}
+
+
+Fraction::~Fraction() = default;
+
 
 // == operator functions
 bool Fraction::operator==(const Fraction &other) const {
@@ -36,7 +48,7 @@ bool Fraction::operator==(float scalar) const {
     return false;
 }
 
-bool operator==(float scalar, const Fraction &f) {
+bool operator==(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -49,7 +61,7 @@ bool Fraction::operator!=(float scalar) const {
     return false;
 }
 
-bool operator!=(float scalar, const Fraction &f) {
+bool operator!=(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -62,7 +74,7 @@ bool Fraction::operator<(float scalar) const {
     return false;
 }
 
-bool operator<(float scalar, const Fraction &f) {
+bool operator<(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -75,7 +87,7 @@ bool Fraction::operator<=(float scalar) const {
     return false;
 }
 
-bool operator<=(float scalar, const Fraction &f) {
+bool operator<=(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -88,7 +100,7 @@ bool Fraction::operator>(float scalar) const {
     return false;
 }
 
-bool operator>(float scalar, const Fraction &f) {
+bool operator>(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -101,7 +113,7 @@ bool Fraction::operator>=(float scalar) const {
     return false;
 }
 
-bool ariel::operator>=(float scalar, const Fraction &f) {
+bool ariel::operator>=(float scalar, const Fraction &other) {
     return false;
 }
 
@@ -114,7 +126,7 @@ Fraction Fraction::operator+(float scalar) const {
     return {0, 0};
 }
 
-Fraction ariel::operator+(float scalar, const Fraction &f) {
+Fraction ariel::operator+(float scalar, const Fraction &other) {
     return {0, 0};
 }
 
@@ -158,7 +170,7 @@ Fraction Fraction::operator*(float scalar) const {
     return {0, 0};
 }
 
-Fraction ariel::operator*(double scalar, const Fraction &f) {
+Fraction ariel::operator*(double scalar, const Fraction &other) {
     return {0, 0};
 }
 
@@ -181,7 +193,7 @@ Fraction Fraction::operator/(float scalar) const {
     return {0, 0};
 }
 
-Fraction ariel::operator/(double scalar, const Fraction &f) {
+Fraction ariel::operator/(double scalar, const Fraction &other) {
     return {0, 0};
 }
 
@@ -215,50 +227,10 @@ const Fraction Fraction::operator--(int) {
     return {0, 0};
 }
 
-std::ostream &ariel::operator<<(std::ostream &os, const Fraction &fraction) {
-    return os;
+std::ostream &ariel::operator<<(std::ostream &ostream, const Fraction &fraction) {
+    return ostream;
 }
 
-std::istream &ariel::operator>>(std::istream &in, Fraction &f) {
-    return in;
+std::istream &ariel::operator>>(std::istream &istream, Fraction &other) {
+    return istream;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

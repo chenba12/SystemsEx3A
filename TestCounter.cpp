@@ -13,11 +13,11 @@ struct ReporterCounter : public ConsoleReporter {
             : ConsoleReporter(input_options) {}
 
     void test_run_end(const TestRunStats &run_stats) override {
+        std::cout << "amount " << run_stats.numAsserts << std::endl;
         if (run_stats.numAsserts >= MIN_TESTS) {
             return_code = 0;
         } else {
             std::cout << "Please write at least " << MIN_TESTS << " tests! " << std::endl;
-            std::cout << "amount " << run_stats.numAsserts << std::endl;
             return_code = 1;
         }
     }

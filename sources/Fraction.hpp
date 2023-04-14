@@ -15,7 +15,7 @@ namespace ariel {
     public:
         Fraction(int numerator, int denominator);
 
-        Fraction(const Fraction &fraction);
+        Fraction(const Fraction &other);
 
         Fraction &operator=(const Fraction &other);
 
@@ -23,7 +23,11 @@ namespace ariel {
 
         explicit Fraction(float scalar);
 
+        Fraction &operator=(Fraction &&other) noexcept;
 
+        Fraction(Fraction &&other) noexcept;
+
+        ~Fraction();
 
         // fraction vs fraction comparison operators
 
@@ -32,7 +36,7 @@ namespace ariel {
 
         bool operator==(float scalar) const;
 
-        friend bool operator==(float scalar, const Fraction &f);
+        friend bool operator==(float scalar, const Fraction &other);
 
 
         // != operator functions
@@ -40,14 +44,14 @@ namespace ariel {
 
         bool operator!=(float scalar) const;
 
-        friend bool operator!=(float scalar, const Fraction &f);
+        friend bool operator!=(float scalar, const Fraction &other);
 
         // < operator functions
         bool operator<(const Fraction &other) const;
 
         bool operator<(float scalar) const;
 
-        friend bool operator<(float scalar, const Fraction &f);
+        friend bool operator<(float scalar, const Fraction &other);
 
 
         // <= operator functions
@@ -55,28 +59,28 @@ namespace ariel {
 
         bool operator<=(float scalar) const;
 
-        friend bool operator<=(float scalar, const Fraction &f);
+        friend bool operator<=(float scalar, const Fraction &other);
 
         // > operator functions
         bool operator>(const Fraction &other) const;
 
         bool operator>(float scalar) const;
 
-        friend bool operator>(float scalar, const Fraction &f);
+        friend bool operator>(float scalar, const Fraction &other);
 
         // >= operator functions
         bool operator>=(const Fraction &other) const;
 
         bool operator>=(float scalar) const;
 
-        friend bool operator>=(float scalar, const Fraction &f);
+        friend bool operator>=(float scalar, const Fraction &other);
 
         // + operator functions
         Fraction operator+(const Fraction &other) const;
 
         Fraction operator+(float scalar) const;
 
-        friend Fraction operator+(float scalar, const Fraction &f);
+        friend Fraction operator+(float scalar, const Fraction &other);
 
         // += operator functions
         Fraction &operator+=(const Fraction &other);
@@ -88,7 +92,7 @@ namespace ariel {
 
         Fraction operator-(float scalar) const;
 
-        friend Fraction operator-(float scalar, const Fraction &fraction);
+        friend Fraction operator-(float scalar, const Fraction &otherraction);
 
         // -= operator functions
         Fraction &operator-=(const Fraction &other);
@@ -100,7 +104,7 @@ namespace ariel {
 
         Fraction operator*(float scalar) const;
 
-        friend Fraction operator*(double scalar, const Fraction &f);
+        friend Fraction operator*(double scalar, const Fraction &other);
 
         // *= operator functions
         Fraction &operator*=(const Fraction &other);
@@ -112,7 +116,7 @@ namespace ariel {
 
         Fraction operator/(float scalar) const;
 
-        friend Fraction operator/(double scalar, const Fraction &f);
+        friend Fraction operator/(double scalar, const Fraction &other);
 
         // /= operator functions
         Fraction &operator/=(const Fraction &other);
@@ -133,10 +137,10 @@ namespace ariel {
 
 
         // overload << output function
-        friend std::ostream &operator<<(std::ostream &os, const Fraction &fraction);
+        friend std::ostream &operator<<(std::ostream &ostream, const Fraction &other);
 
         // overload >> input function
-        friend std::istream &operator>>(std::istream &in, Fraction &f);
+        friend std::istream &operator>>(std::istream &istream, Fraction &other);
     };
 }
 
