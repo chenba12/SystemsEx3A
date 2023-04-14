@@ -38,7 +38,6 @@ namespace ariel {
 
         friend bool operator==(float scalar, const Fraction &other);
 
-
         // != operator functions
         bool operator!=(const Fraction &other) const;
 
