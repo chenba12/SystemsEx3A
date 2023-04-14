@@ -22,6 +22,10 @@ Fraction &Fraction::operator=(const Fraction &other) {
     return *this;
 }
 
+Fraction &Fraction::operator=(float scalar) {
+    return *this;
+}
+
 
 // == operator functions
 bool Fraction::operator==(const Fraction &other) const {
@@ -115,12 +119,12 @@ Fraction ariel::operator+(float scalar, const Fraction &f) {
 }
 
 // += operator functions
-Fraction Fraction::operator+=(const Fraction &other) const {
-    return {0, 0};
+Fraction &Fraction::operator+=(const Fraction &other) {
+    return *this;
 }
 
-Fraction Fraction::operator+=(float scalar) const {
-    return {0, 0};
+Fraction &Fraction::operator+=(float scalar) {
+    return *this;
 }
 
 // - operator functions
@@ -137,12 +141,12 @@ Fraction ariel::operator-(float scalar, const Fraction &fraction) {
 }
 
 // -= operator functions
-Fraction Fraction::operator-=(const Fraction &other) const {
-    return {0, 0};
+Fraction &Fraction::operator-=(const Fraction &other) {
+    return *this;
 }
 
-Fraction Fraction::operator-=(float scalar) const {
-    return {0, 0};
+Fraction &Fraction::operator-=(float scalar) {
+    return *this;
 }
 
 // * operator functions
@@ -158,13 +162,14 @@ Fraction ariel::operator*(double scalar, const Fraction &f) {
     return {0, 0};
 }
 
+
 // *= operator functions
-Fraction Fraction::operator*=(const Fraction &other) const {
-    return {0, 0};
+Fraction &Fraction::operator*=(const Fraction &other) {
+    return *this;
 }
 
-Fraction Fraction::operator*=(float scalar) const {
-    return {0, 0};
+Fraction &Fraction::operator*=(float scalar) {
+    return *this;
 }
 
 // / operator functions
@@ -181,12 +186,12 @@ Fraction ariel::operator/(double scalar, const Fraction &f) {
 }
 
 // /= operator functions
-Fraction Fraction::operator/=(const Fraction &other) const {
-    return {0, 0};
+Fraction &Fraction::operator/=(const Fraction &other) {
+    return *this;
 }
 
-Fraction Fraction::operator/=(const float scalar) const {
-    return {0, 0};
+Fraction &Fraction::operator/=(const float scalar) {
+    return *this;
 }
 
 // ++fraction
@@ -217,6 +222,11 @@ std::ostream &ariel::operator<<(std::ostream &os, const Fraction &fraction) {
 std::istream &ariel::operator>>(std::istream &in, Fraction &f) {
     return in;
 }
+
+
+
+
+
 
 
 

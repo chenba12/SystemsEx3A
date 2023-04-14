@@ -19,6 +19,8 @@ namespace ariel {
 
         Fraction &operator=(const Fraction &other);
 
+        Fraction &operator=(float scalar);
+
         explicit Fraction(float scalar);
 
 
@@ -77,9 +79,9 @@ namespace ariel {
         friend Fraction operator+(float scalar, const Fraction &f);
 
         // += operator functions
-        Fraction operator+=(const Fraction &other) const;
+        Fraction &operator+=(const Fraction &other);
 
-        Fraction operator+=(float scalar) const;
+        Fraction &operator+=(float scalar);
 
         // - operator functions
         Fraction operator-(const Fraction &other) const;
@@ -89,9 +91,9 @@ namespace ariel {
         friend Fraction operator-(float scalar, const Fraction &fraction);
 
         // -= operator functions
-        Fraction operator-=(const Fraction &other) const;
+        Fraction &operator-=(const Fraction &other);
 
-        Fraction operator-=(float scalar) const;
+        Fraction &operator-=(float scalar);
 
         // * operator functions
         Fraction operator*(const Fraction &other) const;
@@ -101,9 +103,9 @@ namespace ariel {
         friend Fraction operator*(double scalar, const Fraction &f);
 
         // *= operator functions
-        Fraction operator*=(const Fraction &other) const;
+        Fraction &operator*=(const Fraction &other);
 
-        Fraction operator*=(float scalar) const;
+        Fraction &operator*=(float scalar);
 
         // / operator functions
         Fraction operator/(const Fraction &other) const;
@@ -113,9 +115,9 @@ namespace ariel {
         friend Fraction operator/(double scalar, const Fraction &f);
 
         // /= operator functions
-        Fraction operator/=(const Fraction &other) const;
+        Fraction &operator/=(const Fraction &other);
 
-        Fraction operator/=(float scalar) const;
+        Fraction &operator/=(float scalar);
 
         // ++fraction
         Fraction &operator++();
