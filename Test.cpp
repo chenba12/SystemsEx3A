@@ -14,7 +14,7 @@ TEST_CASE("CTOR test") {
     CHECK_THROWS(Fraction(rand_num, 0));
     CHECK_NOTHROW(Fraction(0, rand_num));
     CHECK_NOTHROW(Fraction(0.2));
-    CHECK_NOTHROW(Fraction(0, 0));
+    CHECK_NOTHROW(Fraction(0, 1));
 }
 
 TEST_CASE("+ operator") {
@@ -26,6 +26,7 @@ TEST_CASE("+ operator") {
     Fraction res1(1, 3);
     Fraction res2(11, 5);
     float res3 = 2.2;
+    b = a + a;
     CHECK((a + b == scalar));
     CHECK((c + d == res1)); //check reduced form
     CHECK((scalar + a == res2));
@@ -43,12 +44,14 @@ TEST_CASE("- operator") {
     Fraction res1(1, 5);
     Fraction c(9, 10);
     Fraction d(1, 10);
+    Fraction f(0, 1);
     Fraction reduced(4, 5);
     CHECK((a - a == zero));
     CHECK((c - d == reduced));
     CHECK((a - a == zero_scalar));
     CHECK((b - a == res1));
     CHECK(((scalar - a != a - scalar) && (a - b != b - a)));
+    CHECK((a - a == f));
 }
 
 TEST_CASE("* operator") {

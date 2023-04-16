@@ -151,6 +151,10 @@ namespace ariel {
         return {0, 0};
     }
 
+    Fraction Fraction::operator-(const Fraction &other) {
+        return {0, 0};
+    }
+
 // -= operator functions
     Fraction &Fraction::operator-=(const Fraction &other) {
         return *this;
@@ -196,6 +200,10 @@ namespace ariel {
         return {0, 0};
     }
 
+    Fraction Fraction::operator/(const Fraction &other) {
+        return {0, 0};
+    }
+
 // /= operator functions
     Fraction &Fraction::operator/=(const Fraction &other) {
         return *this;
@@ -216,12 +224,12 @@ namespace ariel {
         return f;
     }
 
-// --fraction
+    // --fraction
     Fraction &Fraction::operator--() {
         return *this;
     }
 
-// fraction--
+    // fraction--
     const Fraction Fraction::operator--(int) {
         return {0, 0};
     }
@@ -233,4 +241,5 @@ namespace ariel {
     std::istream &operator>>(std::istream &istream, Fraction &other) {
         return istream;
     }
+
 }
