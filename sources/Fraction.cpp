@@ -1,27 +1,28 @@
-//
-// Created by chen on 4/14/23.
-//
-
 #include "Fraction.hpp"
 
 namespace ariel {
-    Fraction::Fraction(int numerator, int denominator) : numerator(numerator), denominator(denominator) {}
 
-    Fraction::Fraction(const Fraction &fraction) {
-        this->numerator = 0;
-        this->denominator = 0;
+    Fraction::Fraction() : numerator(0), denominator(1), gcdVal(0), lcmVal(0) {
+
     }
 
-    Fraction::Fraction(float scalar) {
-        this->numerator = 0;
-        this->denominator = 0;
+    Fraction::Fraction(int numerator, int denominator) : numerator(0), denominator(1), gcdVal(0), lcmVal(0) {
+
+    }
+
+    Fraction::Fraction(const Fraction &other) : numerator(0), denominator(1), gcdVal(0), lcmVal(0) {
+
+    }
+
+    Fraction::Fraction(float number) : numerator(0), denominator(1), gcdVal(0), lcmVal(0) {
+
     }
 
     Fraction &Fraction::operator=(const Fraction &other) {
         return *this;
     }
 
-    Fraction &Fraction::operator=(float scalar) {
+    Fraction &Fraction::operator=(float number) {
         return *this;
     }
 
@@ -29,217 +30,209 @@ namespace ariel {
         return *this;
     }
 
-    Fraction::Fraction(Fraction &&other) noexcept {
-        this->numerator = other.numerator;
-        this->denominator = other.denominator;
-    }
+    Fraction::Fraction(Fraction &&other) noexcept: numerator(0), denominator(1), gcdVal(0), lcmVal(0) {
 
+    }
 
     Fraction::~Fraction() = default;
 
-
-// == operator functions
     bool Fraction::operator==(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator==(float scalar) const {
+    bool Fraction::operator==(float number) const {
         return false;
     }
 
-    bool operator==(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// != operator functions
     bool Fraction::operator!=(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator!=(float scalar) const {
+    bool Fraction::operator!=(float number) const {
         return false;
     }
 
-    bool operator!=(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// < operator functions
     bool Fraction::operator<(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator<(float scalar) const {
+    bool Fraction::operator<(float number) const {
         return false;
     }
 
-    bool operator<(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// <= operator functions
     bool Fraction::operator<=(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator<=(float scalar) const {
+    bool Fraction::operator<=(float number) const {
         return false;
     }
 
-    bool operator<=(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// > operator functions
     bool Fraction::operator>(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator>(float scalar) const {
+    bool Fraction::operator>(float number) const {
         return false;
     }
 
-    bool operator>(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// >= operator functions
     bool Fraction::operator>=(const Fraction &other) const {
         return false;
     }
 
-    bool Fraction::operator>=(float scalar) const {
+    bool Fraction::operator>=(float number) const {
         return false;
     }
 
-    bool operator>=(float scalar, const Fraction &other) {
-        return false;
-    }
-
-// + operator functions
     Fraction Fraction::operator+(const Fraction &other) const {
-        return {0, 0};
+        return {};
     }
 
-    Fraction Fraction::operator+(float scalar) const {
-        return {0, 0};
+    Fraction Fraction::operator+(float number) const {
+        return {};
     }
 
-    Fraction operator+(float scalar, const Fraction &other) {
-        return {0, 0};
-    }
-
-// += operator functions
     Fraction &Fraction::operator+=(const Fraction &other) {
         return *this;
     }
 
-    Fraction &Fraction::operator+=(float scalar) {
+    Fraction &Fraction::operator+=(float number) {
         return *this;
     }
 
-// - operator functions
     Fraction Fraction::operator-(const Fraction &other) const {
-        return {0, 0};
+        return {};
     }
 
-    Fraction Fraction::operator-(float scalar) const {
-        return {0, 0};
+    Fraction Fraction::operator-(float number) const {
+        return {};
     }
 
-    Fraction operator-(float scalar, const Fraction &fraction) {
-        return {0, 0};
-    }
-
-    Fraction Fraction::operator-(const Fraction &other) {
-        return {0, 0};
-    }
-
-// -= operator functions
     Fraction &Fraction::operator-=(const Fraction &other) {
         return *this;
     }
 
-    Fraction &Fraction::operator-=(float scalar) {
+    Fraction &Fraction::operator-=(float number) {
         return *this;
     }
 
-// * operator functions
     Fraction Fraction::operator*(const Fraction &other) const {
-        return {0, 0};
+        return {};
     }
 
-    Fraction Fraction::operator*(float scalar) const {
-        return {0, 0};
+    Fraction Fraction::operator*(float number) const {
+        return {};
     }
 
-    Fraction operator*(double scalar, const Fraction &other) {
-        return {0, 0};
-    }
-
-
-// *= operator functions
     Fraction &Fraction::operator*=(const Fraction &other) {
         return *this;
     }
 
-    Fraction &Fraction::operator*=(float scalar) {
+    Fraction &Fraction::operator*=(float number) {
         return *this;
     }
 
-// / operator functions
     Fraction Fraction::operator/(const Fraction &other) const {
-        return {0, 0};
+        return {};
     }
 
-    Fraction Fraction::operator/(float scalar) const {
-        return {0, 0};
-    }
-
-    Fraction operator/(double scalar, const Fraction &other) {
-        return {0, 0};
+    Fraction Fraction::operator/(float number) const {
+        return {};
     }
 
     Fraction Fraction::operator/(const Fraction &other) {
-        return {0, 0};
+        return {};
     }
 
-// /= operator functions
     Fraction &Fraction::operator/=(const Fraction &other) {
         return *this;
     }
 
-    Fraction &Fraction::operator/=(const float scalar) {
+    Fraction &Fraction::operator/=(float number) {
         return *this;
     }
 
-// ++fraction
     Fraction &Fraction::operator++() {
         return *this;
     }
 
-// fraction++
     const Fraction Fraction::operator++(int) {
-        Fraction f(0, 0);
-        return f;
+        return Fraction();
     }
 
-    // --fraction
     Fraction &Fraction::operator--() {
         return *this;
     }
 
-    // fraction--
     const Fraction Fraction::operator--(int) {
-        return {0, 0};
+        return Fraction();
     }
 
-    std::ostream &operator<<(std::ostream &ostream, const Fraction &fraction) {
+    void Fraction::reduce() {
+
+    }
+
+    int Fraction::LCM(int num, int den) {
+        return 0;
+    }
+
+    int Fraction::GCD(int num, int den) {
+        return 0;
+    }
+
+    Fraction Fraction::fractionMinus(const Fraction &other) {
+        return {};
+    }
+
+    Fraction Fraction::fractionDiv(const Fraction &other) {
+        return {};
+    }
+
+    bool operator==(float number, const Fraction &other) {
+        return false;
+    }
+
+    bool operator!=(float number, const Fraction &other) {
+        return false;
+    }
+
+    bool operator<(float number, const Fraction &other) {
+        return false;
+    }
+
+    bool operator<=(float number, const Fraction &other) {
+        return false;
+    }
+
+    bool operator>(float number, const Fraction &other) {
+        return false;
+    }
+
+    bool operator>=(float number, const Fraction &other) {
+        return false;
+    }
+
+    Fraction operator+(float number, const Fraction &other) {
+        return {};
+    }
+
+    Fraction operator-(float number, const Fraction &other) {
+        return {};
+    }
+
+    Fraction operator*(float number, const Fraction &other) {
+        return {};
+    }
+
+    Fraction operator/(float number, const Fraction &other) {
+        return {};
+    }
+
+    std::ostream &operator<<(std::ostream &ostream, const Fraction &other) {
         return ostream;
     }
 
     std::istream &operator>>(std::istream &istream, Fraction &other) {
         return istream;
     }
-
 }

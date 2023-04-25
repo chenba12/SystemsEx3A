@@ -6,9 +6,6 @@
  */
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <stdexcept>
 
 using namespace std;
 
@@ -21,6 +18,7 @@ int main() {
     Fraction a(5, 3), b(14, 21);
     cout << "a: " << a << "b: " << b << endl;
     cout << "a+b" << a + b << endl;
+    cout << "a+b" << a + 5.0 << endl;
     cout << "a-b" << a - b << endl;
     cout << "a/b" << a / b << endl;
     cout << "a*b" << a * b << endl;
